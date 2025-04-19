@@ -1,1 +1,40 @@
-<!-- BoxedWine template HTML placeholder -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bombzone - Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      overflow: hidden;
+    }
+    #canvas {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script src="config.js"></script>
+  <script src="boxedwine.js"></script>
+  <script>
+    // Wait for the BoxedWine environment to load and run
+    if (typeof BoxedWineStart === 'function') {
+      BoxedWineStart({
+        canvas: document.getElementById('canvas'),
+        zip: window.boxedWineConfig.zip,
+        exe: window.boxedWineConfig.exe
+      });
+    } else {
+      console.error('BoxedWineStart is not defined.');
+    }
+  </script>
+</body>
+</html>
