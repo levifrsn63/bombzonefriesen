@@ -1,0 +1,1 @@
+// BoxedWine JS placeholder
