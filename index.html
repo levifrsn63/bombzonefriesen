@@ -1,40 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bombzone - Web</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bombzone Classic in Browser</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      overflow: hidden;
-    }
-    #canvas {
-      width: 100vw;
-      height: 100vh;
-      display: block;
-      image-rendering: pixelated;
-    }
+    html, body { margin: 0; height: 100%; background: black; }
+    canvas { width: 100%; height: 100%; display: block; }
   </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <canvas id="boxedwine-canvas"></canvas>
 
-  <script src="config.js"></script>
-  <script src="boxedwine.js"></script>
+  <script src="BoxedWine.js"></script>
   <script>
-    // Wait for the BoxedWine environment to load and run
-    if (typeof BoxedWineStart === 'function') {
-      BoxedWineStart({
-        canvas: document.getElementById('canvas'),
-        zip: window.boxedWineConfig.zip,
-        exe: window.boxedWineConfig.exe
-      });
-    } else {
-      console.error('BoxedWineStart is not defined.');
-    }
+    BoxedWine({
+      canvas: document.getElementById("boxedwine-canvas"),
+      arguments: ["C:/Bombzone/Bombzone.exe"],
+      filePackagePrefixURL: "",
+      mountDrive: {
+        c: "c.drive"
+      }
+    });
   </script>
 </body>
 </html>
